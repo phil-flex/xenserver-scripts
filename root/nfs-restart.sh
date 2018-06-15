@@ -1,5 +1,5 @@
 #!/bin/sh
-/etc/init.d/iptables restart
-/etc/init.d/nfs restart
-/etc/init.d/nfslock restart
+systemctl restart iptables.service
+systemctl restart nfs.service
+systemctl restart nfslock.service
 
