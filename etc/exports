@@ -1,0 +1,1 @@
+/mnt/local-vmexport *(rw,async,no_root_squash)
