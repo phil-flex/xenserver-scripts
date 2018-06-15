@@ -1,0 +1,8 @@
+@reboot sleep 120 && /root/xe-appstart.sh
+@reboot sleep 600 && sh /root/mount-local-vmexport.sh
+@reboot sleep 60 && /root/mount-iso.sh
+#10 0 * * 1-5 /snapshots/NAUbackup/vm-backup.sh
+0 20 * * 1,2,3,4,5 /mnt/local-vmexport/vm-backup.sh daily
+0 20 * * 6 /mnt/local-vmexport/vm-backup.sh weekly
+0 */1 * * * /root/vm-disk-marker.sh > /dev/null 2>&1
+0 */4 * * * /root/memory-free.sh > /dev/null 2>&1
