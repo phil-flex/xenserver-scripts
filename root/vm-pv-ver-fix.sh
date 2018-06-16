@@ -1,8 +1,10 @@
 #!/bin/sh
+
 major=5
 minor=6
 micro=199
 var1=$1
+
 #for d in `xl list|awk '{print $2}'|sed 's/ID//g'`; do
 for d in `xe vm-list params=dom-id power-state=running is-control-domain=false --minimal|sed 's/,/ /g'`; do
 	if [ $d -gt 0 ]; then
