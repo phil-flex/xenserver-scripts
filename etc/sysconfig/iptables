@@ -21,7 +21,7 @@
 -A RH-Firewall-1-INPUT -m conntrack --ctstate NEW -m tcp -p tcp --dport 443 -j ACCEPT
 # NFS
 #NOTE: Use the following command to generate the iptables config in bash
-#rpcinfo -p|awk '{print "-A RH-Firewall-1-INPUT -m state --state NEW -m "$3" -p "$3" --dport "$4" -j ACCEPT"}'|sort|uniq
+#rpcinfo -p|awk '/(tcp|udp)/{print "-A RH-Firewall-1-INPUT -m state --state NEW -m "$3" -p "$3" --dport "$4" -j ACCEPT"}'|sort|uniq
 #-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 111 -j ACCEPT
 #-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 20048 -j ACCEPT
 #-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 2049 -j ACCEPT
